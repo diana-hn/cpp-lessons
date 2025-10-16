@@ -6,11 +6,14 @@ void swap(int &a, int &b) {
     b = temp;
 }
 
+void increment(int &a) {
+    a++;
+}
+
 int main() {
    int a = 5;
-    int b = 10;
-    std::cout << "before swap " << a << ", " << b << std::endl;
-    swap(a, b);
-    std::cout << "after swap " << a << ", " << b;
+    std::cout << "before increment " << a << std::endl;
+    increment(a);
+    std::cout << "after increment " << a << std::endl;
     return 0;
 }
