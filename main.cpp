@@ -22,15 +22,19 @@ void find_min_max(const int arr[5], int &min, int &max) {
         min = min > current ? current: min;
         max = max < current ? current: max;
     }
+}
 
+void order_numbers(int &a, int &b) {
+    if (a > b) {
+        swap(a , b);
+    }
 }
 
 int main() {
-    int arr[5] = {10, 2, 3, 41, 5};
-    int max = arr[0];
-    int min = arr[0];
-    std::cout << "before sum_arr " << min << ", " << max << std::endl;
-    find_min_max(arr, min, max);
-    std::cout << "after sum_arr " << min << ", " << max << std::endl;
+    int a = 7;
+    int b = 3;
+    std::cout << "before order_numbers " << a << ", " << b << std::endl;
+    order_numbers(a,b);
+    std::cout << "after order_numbers " << a << ", " << b << std::endl;
     return 0;
 }
