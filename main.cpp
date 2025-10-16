@@ -1,12 +1,16 @@
 #include <iostream>
 
-int main(int x) {
-    int i = 1;
-    while (i < 11) {
-        x = 7;
-        std::cout << i * x << std::endl;
-        i++;
-    }
+void swap(int &a, int &b) {
+    int temp = a;
+    a = b;
+    b = temp;
+}
 
-
+int main() {
+   int a = 5;
+    int b = 10;
+    std::cout << "before swap " << a << ", " << b << std::endl;
+    swap(a, b);
+    std::cout << "after swap " << a << ", " << b;
+    return 0;
 }
