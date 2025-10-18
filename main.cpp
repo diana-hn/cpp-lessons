@@ -1,12 +1,28 @@
 #include <iostream>
 
-template <typename T>
-T multiply(T a, T b) {
-    return a * b;
+struct Rectangle {
+    int width;
+    int height;
+
+    int area() {
+        return 2 * (width + height);
+    }
+};
+
+void print_rectangle(const Rectangle &rectangle) {
+    std::cout << rectangle.width << rectangle.height;
 }
 
 int main() {
-   std::cout << multiply(3, 4);
-   std::cout << multiply(3.0, 4.0);
+    Rectangle r1;
+    r1.width = 10;
+    r1.height = 20;
+    print_rectangle(r1);
+
+    r1.area();
+
+
+    Rectangle r2 = {5, 10};
+    print_rectangle(r2);
     return 0;
 }
