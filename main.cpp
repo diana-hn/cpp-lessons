@@ -1,28 +1,22 @@
 #include <iostream>
 
-struct Rectangle {
-    int width;
-    int height;
+struct Student {
+    std::string name;
+    int grade;
+    int age;
 
-    int area() {
-        return 2 * (width + height);
-    }
+     void print() {
+         std::cout << name << grade << age;
+     }
 };
 
-void print_rectangle(const Rectangle &rectangle) {
-    std::cout << rectangle.width << rectangle.height;
-}
+
 
 int main() {
-    Rectangle r1;
-    r1.width = 10;
-    r1.height = 20;
-    print_rectangle(r1);
+    Student student1 = {"Angelica", 10, 20};
+    student1.print();
 
-    r1.area();
-
-
-    Rectangle r2 = {5, 10};
-    print_rectangle(r2);
+    Student student2 = {"George", 9, 37};
+    student2.print();
     return 0;
 }
