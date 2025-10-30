@@ -3,20 +3,60 @@
 struct Student {
     std::string name;
     int grade;
-    int age;
 
-     void print() {
-         std::cout << name << grade << age;
-     }
+    void print() {
+        std::cout << name << " has grade: " << grade << std::endl;
+    }
 };
 
+struct Temperature {
+    int celsius;
 
+   std::string toFahrenheit() {
+        return "Hello World!";
+    }
+};
 
-int main() {
-    Student student1 = {"Angelica", 10, 20};
-    student1.print();
+struct Time {
+    int hours;
+    int minutes;
 
-    Student student2 = {"George", 9, 37};
-    student2.print();
+    void print() {
+        std::cout << hours << ":"<< minutes << std::endl;
+    }
+
+    void add_hour() {
+        hours = hours == 23 ? 0 : hours + 1;
+    }
+
+    void add_hours(int h) {
+      int new_hours = hours + h;
+        if (new_hours > 23) {
+            hours = new_hours % 24;
+        } else {
+            hours = new_hours;
+        }
+    }
+
+    void add_minutes(int m) {
+        int new_minutes = minutes + m;
+        if (new_minutes > 60) {
+            add_hours(round(m / 60));
+            minutes = new_minutes % 60;
+        } else {
+            minutes = new_minutes;
+        }
+    }
+};
+ int main() {
+    Time time1 = {23,33};
+    time1.print();
+    time1.add_hour();
+    time1.print();
+
+    Time time2 = {5,10};
+    // time2.add_hours(110);
+    time2.add_minutes(300);
+    time2.print();
     return 0;
 }

@@ -1,0 +1,3 @@
+3️⃣ Create array from 5 students и print names who has grade upper than 80.
+4️⃣ Create Temperature with celsius and add method toFahrenheit.
+5. Create Time structure with fields hours, minutes and add method addMinutes(int m).
