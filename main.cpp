@@ -1,42 +1,47 @@
 #include <iostream>
 
-class Rectangle {
-private:
-    int width;
-    int length;
+class BankAccount {
+    int account_number;
+    int acc_balance;
 
 public:
-    Rectangle(int width, int length) {
-        this->width = width;
-        this->length = length;
+
+    BankAccount(int account_number){
+        this->account_number = account_number;
+        acc_balance = 0;
     }
 
-    Rectangle(int size) {
-        width = size;
-        length = size;
+    BankAccount(int account_number, int acc_balance) {
+        this->account_number = account_number;
+        this->acc_balance = acc_balance;
     }
 
-    int perymetr();
-    int area();
+    void deposit(int amount){
+        acc_balance = acc_balance + amount;
+    }
+
+    void withdraw(int amount);
+
+    int get_acc_balance() {
+        return acc_balance;
+    }
 
 };
 
-int Rectangle::perymetr() {
-    return 2 * (width + length);
+void BankAccount::withdraw(int amount) {
+    if (acc_balance > amount) {
+        acc_balance -= amount;
+    } else {
+        std::cout << "You don't have enough money.";
+    }
 }
-
-int Rectangle::area() {
-    return width * length;
-}
-
 
 int main() {
-   Rectangle rectangle {10,15};
-   Rectangle square {10};
-    std::cout << rectangle.perymetr();
-    std::cout << square.perymetr();
-    std::cout << rectangle.area();
-    std::cout << square.area();
+    BankAccount account {1,100};
+    account.withdraw(101);
+    account.deposit(10);
+    account.withdraw(101);
+    std::cout << account.get_acc_balance();
     return 0;
 }
 
