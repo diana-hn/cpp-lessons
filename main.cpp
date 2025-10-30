@@ -1,27 +1,34 @@
 #include <iostream>
 
-class Point {
-    int x;
-    int y;
+class Student {
+    int age;
+    std::string name;
+
 
 public:
-
-    Point (int _x, int y) {
-        x = _x;
-        this->y = y;
+    Student(std::string new_name) {
+        name = new_name;
     }
     void print() {
-        std::cout << x << "," << y;
+        std::cout << "Hello, my name is " << this->name << " Im " << age << " years old." << std::endl;
+    }
+
+    int get_age() {
+        return age;
+    }
+
+    void set_age(int new_age) {
+        if (new_age < 0) {
+            std::cout << "error";
+        } else {
+            age = new_age;
+        }
     }
 };
-
 int main() {
-   Point p1 = {1,2};
-    Point p2 = {10,20};
-    p1.print();
-    std::cout << std::endl;
-    p2.print();
-
+    Student student1 {"Jack"};
+    student1.set_age(10);
+    student1.print();
     return 0;
 }
 
