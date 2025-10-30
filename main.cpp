@@ -1,34 +1,42 @@
 #include <iostream>
 
-class Student {
-    int age;
-    std::string name;
-
+class Rectangle {
+private:
+    int width;
+    int length;
 
 public:
-    Student(std::string new_name) {
-        name = new_name;
-    }
-    void print() {
-        std::cout << "Hello, my name is " << this->name << " Im " << age << " years old." << std::endl;
+    Rectangle(int width, int length) {
+        this->width = width;
+        this->length = length;
     }
 
-    int get_age() {
-        return age;
+    Rectangle(int size) {
+        width = size;
+        length = size;
     }
 
-    void set_age(int new_age) {
-        if (new_age < 0) {
-            std::cout << "error";
-        } else {
-            age = new_age;
-        }
-    }
+    int perymetr();
+    int area();
+
 };
+
+int Rectangle::perymetr() {
+    return 2 * (width + length);
+}
+
+int Rectangle::area() {
+    return width * length;
+}
+
+
 int main() {
-    Student student1 {"Jack"};
-    student1.set_age(10);
-    student1.print();
+   Rectangle rectangle {10,15};
+   Rectangle square {10};
+    std::cout << rectangle.perymetr();
+    std::cout << square.perymetr();
+    std::cout << rectangle.area();
+    std::cout << square.area();
     return 0;
 }
 
